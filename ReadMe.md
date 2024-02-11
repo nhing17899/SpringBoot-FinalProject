@@ -6,29 +6,42 @@
 [Storyboard]()
 
 ## Requirements
-**1.** [User] [Feature] [Do something].
+### Scenario 1
 
-*Given*: [Prerequisite]
+**As a** student,  
+**I want** to be able to track homework with the todo list,  
+**So that** I can remember what tasks I need to get done.
 
-*When*: [Series of Steps]
+#### Examples
 
-*Then*: [Expected Result]
+##### 1.1
+> **Given** I have created a list,  
+  **When** I click the add task button,  
+  **Then** a form appears where the I can put in task information
 
-**2.** [User] [Feature] [Do something].
+##### 1.2
+> **Given** the task entry form is visible,  
+  **When** I add information about my task and submit,  
+  **Then** the task shows up in my current list
+  
+### Scenario 2
 
-*Given*: [Prerequisite]
+**As a** member of a household with chores,  
+**I want** to be able to keep track of shared tasks in the house,  
+**So that** I make sure tasks get completed.
 
-*When*: [Series of Steps]
+#### Examples
 
-*Then*: [Expected Result]
+##### 2.1
+> **Given** members of a household are all in a shared list,  
+  **When** a member of the group adds a task with a due date,  
+  **Then** members of the group can find the new task as well as its due date
 
-**3.** [User] [Feature] [Do something].
+##### 2.2
+> **Given** members of a household are all in a shared list,  
+  **When** a member of the group checks off an item as completed,  
+  **Then** the item when viewed by other members is shown as completed
 
-*Given*: [Prerequisite]
-
-*When*: [Series of Steps]
-
-*Then*: [Expected Result]
 
 ## Class Diagram Description
 [Picture]
