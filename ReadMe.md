@@ -39,9 +39,11 @@
 
 ## Team Members and Roles
 
-**UI Specialist**:
+**Software Architect**: Sasidhar Chilaka
 
-**Business Logic**:
+**Backend Developer**: Logan Arnett
+
+**Database Administrator**: Arian Kharazmi Tousi
 
 **Scrum Master**: Nhi Nguyen
 
