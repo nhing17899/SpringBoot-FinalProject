@@ -50,6 +50,11 @@
 
 [JSON - Java DTO]
 
+This is the baseline JSON Schema we plan to export to another app.
+> 
+> package todoapp
+> ...
+
 ## Team Members and Roles
 
 **Software Architect**: Sasidhar Chilaka
