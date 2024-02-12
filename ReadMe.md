@@ -57,7 +57,7 @@ Integrating Seamlessly into Your Routine: No need for a complicated setup. Our a
 
 
 ## Class Diagram Description
-[Picture]
+![Class Diagram](/documentation/TodoListClassDiagram.drawio.png)
 
 ## JSON Schema
 
