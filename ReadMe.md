@@ -57,7 +57,9 @@ Integrating Seamlessly into Your Routine: No need for a complicated setup. Our a
 
 
 ## Class Diagram Description
-[Picture]
+In the below diagram, the main data structures are defined in the com.todoList.dao layer. Connecting to this is the com.todoList.service layer. This layer performs actions on the data objects and prepares data for the front-end. The layer above this is the com.todoList.api layer. This layer contains the controllers to define HTTP requests that can be sent to the server. Finally is the com.todoList.ui layer. This layer provides the pages that are displayed on the front-end.
+
+![Class Diagram](/documentation/TodoListClassDiagram.drawio.png)
 
 ## JSON Schema
 
