@@ -18,9 +18,6 @@ Integrating Seamlessly into Your Routine: No need for a complicated setup. Our a
 <img width="401" alt="Screenshot 2024-02-11 at 6 53 11 PM" src="https://github.com/nhing17899/IT4045C-FinalProject/assets/97551417/d6cddc73-aaa1-4be9-a7c1-8d7b9347f278">
 
 
-
-[Storyboard]()
-
 ## Requirements
 ### Scenario 1
 
