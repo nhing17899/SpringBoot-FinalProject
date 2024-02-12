@@ -62,22 +62,20 @@ In the below diagram, the main data structures are defined in the com.todoList.d
 ![Class Diagram](/documentation/TodoListClassDiagram.drawio.png)
 
 ## JSON Schema
-
-[JSON - Java DTO]
-
 This is the inital baseline JSON Schema we plan to export to another app.
->
->{
->  "type": "object",
->  "properties": {
->    "id": {"type": "integer"},
->    "name": {"type": "string"},
->    "dueDate": {"type": "string", "format": "date-time"},
->    "completed": {"type": "boolean"},
->    "listId": {"type": "integer"},
->    "listOrder": {"type": "integer"}
->  }
->}
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {"type": "integer"},
+    "name": {"type": "string"},
+    "dueDate": {"type": "string", "format": "date-time"},
+    "completed": {"type": "boolean"},
+    "listId": {"type": "integer"},
+    "listOrder": {"type": "integer"}
+  }
+}
+```
 
 ## Team Members and Roles
 
@@ -91,13 +89,13 @@ This is the inital baseline JSON Schema we plan to export to another app.
 
 ## Milestones
 
-[Milestone 1] ()
+[Milestone 1](https://github.com/nhing17899/IT4045C-FinalProject/milestone/1)
 
-[Milestone 2] ()
+[Milestone 2](https://github.com/nhing17899/IT4045C-FinalProject/milestone/2)
 
-[Milestone 3] ()
+[Milestone 3](https://github.com/nhing17899/IT4045C-FinalProject/milestone/3)
 
-[Milestone 4] ()
+[Milestone 4](https://github.com/nhing17899/IT4045C-FinalProject/milestone/4)
 
 ## Weekly stand-up meeting link:
 
