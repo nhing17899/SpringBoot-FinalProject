@@ -65,7 +65,6 @@ In the below diagram, the main data structures are defined in the com.todoList.d
 
 [JSON - Java DTO]
 
-This is the baseline JSON Schema we plan to export to another app.
 This is the inital baseline JSON Schema we plan to export to another app.
 >
 >{
