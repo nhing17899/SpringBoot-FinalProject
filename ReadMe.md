@@ -62,22 +62,20 @@ In the below diagram, the main data structures are defined in the com.todoList.d
 ![Class Diagram](/documentation/TodoListClassDiagram.drawio.png)
 
 ## JSON Schema
-
-[JSON - Java DTO]
-
 This is the inital baseline JSON Schema we plan to export to another app.
->
->{
->  "type": "object",
->  "properties": {
->    "id": {"type": "integer"},
->    "name": {"type": "string"},
->    "dueDate": {"type": "string", "format": "date-time"},
->    "completed": {"type": "boolean"},
->    "listId": {"type": "integer"},
->    "listOrder": {"type": "integer"}
->  }
->}
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": {"type": "integer"},
+    "name": {"type": "string"},
+    "dueDate": {"type": "string", "format": "date-time"},
+    "completed": {"type": "boolean"},
+    "listId": {"type": "integer"},
+    "listOrder": {"type": "integer"}
+  }
+}
+```
 
 ## Team Members and Roles
 
