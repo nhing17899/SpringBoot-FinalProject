@@ -66,9 +66,19 @@ In the below diagram, the main data structures are defined in the com.todoList.d
 [JSON - Java DTO]
 
 This is the baseline JSON Schema we plan to export to another app.
-> 
-> package todoapp
-> ...
+This is the inital baseline JSON Schema we plan to export to another app.
+>
+>{
+>  "type": "object",
+>  "properties": {
+>    "id": {"type": "integer"},
+>    "name": {"type": "string"},
+>    "dueDate": {"type": "string", "format": "date-time"},
+>    "completed": {"type": "boolean"},
+>    "listId": {"type": "integer"},
+>    "listOrder": {"type": "integer"}
+>  }
+>}
 
 ## Team Members and Roles
 
