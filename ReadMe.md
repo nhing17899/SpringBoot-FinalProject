@@ -91,13 +91,13 @@ This is the inital baseline JSON Schema we plan to export to another app.
 
 ## Milestones
 
-[Milestone 1] ()
+[Milestone 1](https://github.com/nhing17899/IT4045C-FinalProject/milestone/1)
 
-[Milestone 2] ()
+[Milestone 2](https://github.com/nhing17899/IT4045C-FinalProject/milestone/2)
 
-[Milestone 3] ()
+[Milestone 3](https://github.com/nhing17899/IT4045C-FinalProject/milestone/3)
 
-[Milestone 4] ()
+[Milestone 4](https://github.com/nhing17899/IT4045C-FinalProject/milestone/4)
 
 ## Weekly stand-up meeting link:
 
