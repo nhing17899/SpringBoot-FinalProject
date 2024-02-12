@@ -1,8 +1,24 @@
 # Spring Boot - Final Project
 
-## Introduction
+## Introduction: 
+Life gets hectic, and we get it. Balancing your personal tasks, collaborating with others, and keeping up with shared responsibilities can be a juggling act. That's why we've created a task management and collaboration app that's designed to simplify your daily life. Whether you're a student sharing a space with roommates, part of a team managing projects, or just looking for a way to stay organized, our app has got you covered.
+
+
+Tackling Everyday Challenges: We know the struggle of coordinating with others, especially when it comes to shared living. Sticky notes and group chats only go so far, leading to misunderstandings and missed chores. Our app steps in to make life easier, providing a central hub for creating shared to-do lists, assigning tasks, and managing chores together. It's all about making sure everyone chips in and feels a sense of accomplishment.
+Adaptable for You and Your Crew: Beyond just managing chores, our app is perfect for personal use too. Whether you're crafting your schedule, jotting down thoughts in a journal, or simply creating your to-do list, our app is like your trusty sidekick, adapting to your unique needs.
+
+
+Integrating Seamlessly into Your Routine: No need for a complicated setup. Our app effortlessly syncs with your calendar, allowing you to see your tasks, events, and deadlines all in one place. It's your personalized command center, giving you a snapshot of your daily, weekly, and monthly commitments.
 
 ## Storyboard
+<img width="401" alt="Screenshot 2024-02-11 at 6 52 31 PM" src="https://github.com/nhing17899/IT4045C-FinalProject/assets/97551417/05d054e0-bf4a-43ee-8b46-a3fd85d29e05">
+<img width="401" alt="Screenshot 2024-02-11 at 6 52 40 PM" src="https://github.com/nhing17899/IT4045C-FinalProject/assets/97551417/2227f672-8378-41ca-867d-1e6ece96b909">
+<img width="401" alt="Screenshot 2024-02-11 at 6 52 44 PM" src="https://github.com/nhing17899/IT4045C-FinalProject/assets/97551417/c9b0f9c1-b1a7-47f6-b794-2eedc1f71c85">
+<img width="401" alt="Screenshot 2024-02-11 at 6 52 58 PM" src="https://github.com/nhing17899/IT4045C-FinalProject/assets/97551417/883fca1a-805b-4d42-a029-9e2b1d19fc97">
+<img width="401" alt="Screenshot 2024-02-11 at 6 53 11 PM" src="https://github.com/nhing17899/IT4045C-FinalProject/assets/97551417/d6cddc73-aaa1-4be9-a7c1-8d7b9347f278">
+
+
+
 [Storyboard]()
 
 ## Requirements
