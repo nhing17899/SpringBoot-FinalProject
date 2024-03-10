@@ -13,7 +13,10 @@ public class TodoServiceStub implements ITodoService {
             task.setDueDate(new Date());
             task.setCompleted(false);
             task.setListId(1);
+
+            return task;
         }
+        
         return null;
     }
 }
