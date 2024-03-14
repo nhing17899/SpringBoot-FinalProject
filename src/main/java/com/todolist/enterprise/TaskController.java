@@ -7,14 +7,17 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TaskController {
-
+    /**
+     * Manages root endpoint and return to home page
+     * @return Home page
+     */
     @RequestMapping("/")
     public String index() {
         return "home";
     }
 
     @GetMapping("/task/{id}")
-    public ResponseEntity getTaskById(@PathVariable("id") String id) {
+    public ResponseEntity getTaskById(@PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 }
