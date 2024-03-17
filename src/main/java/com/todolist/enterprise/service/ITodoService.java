@@ -11,4 +11,6 @@ public interface ITodoService {
      *                          or if the provided task ID is invalid
      */
     Task getTaskById(int taskId);
+
+    //Added RuntimeException for easier error handling
 }
