@@ -6,15 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-public class TaskController {
+public class UserController {
 
     @RequestMapping("/")
     public String index() {
-        return "TaskView";
-    }
-
-    @GetMapping("/task/{id}")
-    public ResponseEntity getTaskById(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
+        return "AccountView";
     }
 }
