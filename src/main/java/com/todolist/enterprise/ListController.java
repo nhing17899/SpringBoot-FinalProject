@@ -4,17 +4,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/*Added new controllers for the html pages as listed
+ * in the Readme file
+*/
+
 
 @Controller
-public class TaskController {
+public class ListController {
 
     @RequestMapping("/")
     public String index() {
-        return "TaskView";
-    }
-
-    @GetMapping("/task/{id}")
-    public ResponseEntity getTaskById(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
+        return "ListView";
     }
 }
