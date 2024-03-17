@@ -7,16 +7,13 @@ import java.util.Date;
 public class TodoServiceStub implements ITodoService {
     @Override
     public Task getTaskById(int taskId) {
-        if (taskId == 1) {
-            Task task = new Task();
-            task.setName("Task 1");
-            task.setDueDate(new Date());
-            task.setCompleted(false);
-            task.setListId(1);
 
-            return task;
-        }
-        
-        return null;
+        Task task = new Task();
+        task.setName("Task 1");
+        task.setDueDate(new Date());
+        task.setCompleted(false);
+        task.setListId(1);
+
+        return task;
     }
 }
