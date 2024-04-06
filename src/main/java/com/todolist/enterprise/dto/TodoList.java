@@ -1,6 +1,6 @@
 package com.todolist.enterprise.dto;
-import javax.persistence.Entity;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +11,7 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
-@Table(name = "list")
+@Table(name = "lists")
 public @Data class TodoList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,6 @@ public @Data class TodoList {
 
     private String description;
 
-    @OneToMany(mappedBy = "list")
+    @OneToMany(mappedBy = "listId")
     private List<Task> tasks;
 }
