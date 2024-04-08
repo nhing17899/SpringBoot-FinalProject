@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import com.todolist.enterprise.dto.Task;
 import com.todolist.enterprise.dto.TodoList;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,55 +28,78 @@ public class TodoServiceStub implements ITodoService {
 
     @Override
     public List<Task> getTasksInTodoList(int todoListId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTasksInTodoList'");
+        if (todoListId == 1) {
+            List<Task> tasks = new ArrayList<Task>();
+            for (int i = 1; i <= 10; i++) {
+                Task task = new Task();
+                task.setTaskId(i);
+                task.setName("task " + i);
+                task.setDueDate(new Date());
+                task.setCompleted(i % 2 == 0);
+                task.setListId(1);
+                task.setListOrder(i);
+    
+                tasks.add(task);
+            }
+
+            return tasks;
+        }
+        
+        return null;
     }
 
     @Override
     public Task createTask(Task task) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createTask'");
+        return task;
     }
 
     @Override
     public Task modifyTask(Task task) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modifyTask'");
+        return task;
     }
 
     @Override
-    public void deleteTask(int taskId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteTask'");
-    }
+    public void deleteTask(int taskId) { }
 
     @Override
     public TodoList getTodoListById(int todoListId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getListById'");
+        if (todoListId == 1) {
+            TodoList todoList = new TodoList();
+            todoList.setListId(1);
+            todoList.setName("List 1");
+            todoList.setDescription("List 1 Description");
+
+            return todoList;
+        }
+        
+        return null;
     }
 
     @Override
     public List<TodoList> getTodoLists() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTodoLists'");
+        List<TodoList> todoLists = new ArrayList<TodoList>();
+        for (int i = 1; i <= 10; i++) {
+            TodoList todoList = new TodoList();
+            todoList.setListId(i);
+            todoList.setName("List " + i);
+            todoList.setDescription("List " + i + " Description");
+
+            todoLists.add(todoList);
+        }
+
+        return todoLists;
     }
 
     @Override
     public TodoList createTodoList(TodoList todoList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createTodoList'");
+        return todoList;
     }
 
     @Override
     public TodoList modifyTodoList(TodoList todoList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modifyTodoList'");
+       return todoList;
     }
 
     @Override
-    public void deleteTodoList(int todoListId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteTodoList'");
-    }
+    public void deleteTodoList(int todoListId) { }
 }

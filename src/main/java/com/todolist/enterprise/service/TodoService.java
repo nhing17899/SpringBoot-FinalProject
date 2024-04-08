@@ -1,21 +1,25 @@
 package com.todolist.enterprise.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.todolist.enterprise.dao.TaskRepository;
+import com.todolist.enterprise.dao.TodoListRepository;
 import com.todolist.enterprise.dto.Task;
 import com.todolist.enterprise.dto.TodoList;
 
 @Component
 public class TodoService implements ITodoService {
     private final TaskRepository taskRepository;
+    private final TodoListRepository todoListRepository;
 
     @Autowired
-    public TodoService(TaskRepository taskRepository) {
+    public TodoService(TaskRepository taskRepository, TodoListRepository todoListRepository) {
         this.taskRepository = taskRepository;
+        this.todoListRepository = todoListRepository;
     }
 
     @Override
@@ -25,56 +29,53 @@ public class TodoService implements ITodoService {
 
     @Override
     public List<Task> getTasksInTodoList(int todoListId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTasksInTodoList'");
+        return taskRepository.findByListId(todoListId);
     }
 
     @Override
     public Task createTask(Task task) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createTask'");
+        return taskRepository.save(task);
     }
 
     @Override
     public Task modifyTask(Task task) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modifyTask'");
+        return taskRepository.save(task);
     }
 
     @Override
     public void deleteTask(int taskId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteTask'");
+        taskRepository.deleteById(taskId);
     }
 
     @Override
     public TodoList getTodoListById(int todoListId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getListById'");
+        return todoListRepository.findById(todoListId).get();
     }
 
     @Override
     public List<TodoList> getTodoLists() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTodoLists'");
+        Iterable<TodoList> todoListsIterable =  todoListRepository.findAll();
+        List<TodoList> todoLists = new ArrayList<TodoList>();
+        todoListsIterable.forEach(list -> {
+            todoLists.add(list);
+        });
+        
+
+        return todoLists;
     }
 
     @Override
     public TodoList createTodoList(TodoList todoList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createTodoList'");
+        return todoListRepository.save(todoList);
     }
 
     @Override
     public TodoList modifyTodoList(TodoList todoList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modifyTodoList'");
+        return todoListRepository.save(todoList);
     }
 
     @Override
     public void deleteTodoList(int todoListId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteTodoList'");
+        todoListRepository.deleteById(todoListId);
     }
-    
 }
