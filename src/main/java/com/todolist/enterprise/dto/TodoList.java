@@ -24,5 +24,5 @@ public @Data class TodoList {
     private String description;
 
     @OneToMany(mappedBy = "listId")
-    private List<Task> tasks;
+    private List<Task> tasks = null;
 }

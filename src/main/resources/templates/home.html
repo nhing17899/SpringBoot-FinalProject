@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Task</title>
-    </head>
+<html xmlns:th="http://www.thymeleaf.org">
 
-    <body>
-        Testing
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 2rem;
+        }
+
+        .container {
+            align-items: center;
+            width: 100%;
+        }
+
+        #createTodoListForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #createTodoListForm button {
+            margin-top: 2rem;
+        }
+
+        .todo-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            list-style-type: none;
+            padding: 2rem;
+            margin: 2rem;
+        }
+
+        .todo-card {
+            display: flex;
+            justify-content: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .todo-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .todo-name,
+        .todo-description {
+            flex: 1;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To-do List</h1>
+    <div class="container">
+        <form id="createTodoListForm" action="/createTodoList" th:action="@{/}" th:object="${todoList}" method="POST">
+            <label>Name</label> <input type="text" name="name"></input>
+            <label>Description</label> <input type="text" name="description"></input>
+
+            <button type="submit" name="submit">Create Todo List</button>
+        </form>
+
+        <ul class="todo-list">
+            <li class="todo-card" th:each="todoList : ${todoLists}">
+                <div class="todo-info">
+                    <div class="todo-name" th:text="${todoList.name}"></div>
+                    <div class="todo-description" th:text="${todoList.description}"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
 </html>
