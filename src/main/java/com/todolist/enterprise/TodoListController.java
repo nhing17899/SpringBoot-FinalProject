@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.*;
 import com.todolist.enterprise.dto.Task;
 import com.todolist.enterprise.dto.TodoList;
 import com.todolist.enterprise.service.ITodoService;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @Controller
 public class TodoListController {
 
     @Autowired
     private ITodoService todoService;
+
+    @GetMapping("/")
+    public String redirectToLists(Model model) {
+        return "redirect:/lists";
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<TodoList> getTodoListById(@PathVariable("id") int id) {
@@ -32,26 +35,20 @@ public class TodoListController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping("/lists")
     public String getTasksInTodoList(Model model) {
         List<TodoList> foundLists = todoService.getTodoLists();
         model.addAttribute("todoLists", foundLists);
         return "home";
     }
 
-    @PostMapping("/")
-    public String createTodoList(@RequestBody TodoList todoList, Model model) {
-        TodoList newLists = todoService.createTodoList(todoList);
-        List<TodoList> foundLists = todoService.getTodoLists();
-        foundLists.add(newLists);
-        model.addAttribute("todoLists", foundLists);
-        return "home";
-    }
-
-    @RequestMapping("/saveTodoList")
-    public String saveTodoList(TodoList todoList) {
+    @PostMapping("/list/create")
+    public String createTodoList(@ModelAttribute TodoList todoList, Model model) {
         todoService.createTodoList(todoList);
-        return "home";
+
+        List<TodoList> foundLists = todoService.getTodoLists();
+        model.addAttribute("todoLists", foundLists);
+        return "redirect:/lists";
     }
 
     @PutMapping("/")

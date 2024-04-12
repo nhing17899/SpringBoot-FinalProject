@@ -67,7 +67,7 @@
 <body>
     <h1>To-do List</h1>
     <div class="container">
-        <form id="createTodoListForm" action="/createTodoList" th:action="@{/}" th:object="${todoList}" method="POST">
+        <form id="createTodoListForm" th:action="@{/list/create}" th:object="${todoList}" method="POST">
             <label>Name</label> <input type="text" name="name"></input>
             <label>Description</label> <input type="text" name="description"></input>
 
