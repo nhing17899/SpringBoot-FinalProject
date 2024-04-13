@@ -11,5 +11,7 @@ import com.todolist.enterprise.dto.Task;
 @Repository
 @Profile("!test")
 public interface TaskRepository extends CrudRepository<Task, Integer>{
-    List<Task> findByListId(int todoListId);
+    
+    List<Task> findAllByListId(int todoListId);
+
 }
