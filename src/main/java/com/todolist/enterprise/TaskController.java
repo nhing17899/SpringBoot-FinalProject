@@ -1,5 +1,6 @@
 package com.todolist.enterprise;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.todolist.enterprise.dto.Task;
+import com.todolist.enterprise.dto.TodoList;
 import com.todolist.enterprise.service.ITodoService;
 
 
@@ -45,15 +47,14 @@ public class TaskController {
         }
     }
 
-    @PostMapping("/task/new")
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        try {
-            Task createdTask = todoService.createTask(task);
-            return new ResponseEntity<Task>(createdTask, HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    @PostMapping("/list/{id}/task/new")
+    public String createTask(@PathVariable("id") int id, @ModelAttribute Task task, Model model) {
+        todoService.createTask(task);
+
+        List<Task> foundTasks = todoService.getTasksInTodoList(id);
+        model.addAttribute("tasks", foundTasks);
+
+        return "redirect:/lists/{id}";
     }
 
     @PutMapping("/task")

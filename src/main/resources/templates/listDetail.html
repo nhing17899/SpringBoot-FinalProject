@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 2rem;
+        }
+
+        .container {
+            align-items: center;
+            width: 100%;
+        }
+
+        #createTaskForm {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        #createTaskForm button {
+            margin-top: 15px;
+            width: 20%;
+        }
+
+        .form-item {
+            height: 30px;
+            margin-bottom: 15px;
+        }
+
+        .task-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            list-style-type: none;
+            padding: 2rem;
+            margin: 2rem;
+        }
+
+        .task-card {
+            display: flex;
+            justify-content: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .custom-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .checkbox-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .task-name {
+            font-weight: bold;
+        }
+
+        .due-date {
+            color: #888;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 th:text="${todoList.name}"></h1>
+    <div class="container">
+        <form id="createTaskForm" th:action="@{'/list/' + ${todoList.getListId()} + '/task/new'}" th:object="${tasks}"
+            method="POST">
+            <label>Task Name</label> <input class="form-item" type="text" name="taskName"></input>
+            <label>Due Date</label> <input class="form-item" type="date" name="dueDate"></input>
+            <button type="submit" name="submit">Create Task</button>
+        </form>
+
+        <ul class="task-list">
+            <li class="task-card" th:each="task : ${tasks}">
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="complete">
+                    <div class="checkbox-content">
+                        <span class="task-name" th:text="{task.name}"></span>
+                        <span class="due-date" th:text="{task.dueDate}"></span>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
