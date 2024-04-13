@@ -80,25 +80,39 @@
             font-size: 0.8em;
         }
     </style>
+    <script>
+        function handleTaskCompletion(value) {
+            console.log(value.checked);
+            console.log(value.dataset.taskId);
+            fetch(`/task/${value.dataset.taskId}/checked?completed=${value.checked}`, {
+                method: 'PUT',
+            })
+        }
+    </script>
 </head>
 
 <body>
     <h1 th:text="${todoList.name}"></h1>
     <div class="container">
-        <form id="createTaskForm" th:action="@{'/list/' + ${todoList.getListId()} + '/task/new'}" th:object="${tasks}"
+        <form id="createTaskForm" th:action="@{'/list/' + ${todoList.listId} + '/task/new'}" th:object="${task}"
             method="POST">
-            <label>Task Name</label> <input class="form-item" type="text" name="taskName"></input>
+            <label>Task Name</label> <input class="form-item" type="text" name="name"></input>
             <label>Due Date</label> <input class="form-item" type="date" name="dueDate"></input>
             <button type="submit" name="submit">Create Task</button>
         </form>
 
         <ul class="task-list">
-            <li class="task-card" th:each="task : ${tasks}">
+            <li class="task-card" data-task th:each="task : ${todoList.tasks}">
                 <label class="custom-checkbox">
-                    <input type="checkbox" name="complete">
+                    <input
+                        type="checkbox"
+                        name="complete"
+                        th:checked="${task.completed}"
+                        th:data-task-id="${task.taskId}"
+                        onchange="handleTaskCompletion(this)">
                     <div class="checkbox-content">
-                        <span class="task-name" th:text="{task.name}"></span>
-                        <span class="due-date" th:text="{task.dueDate}"></span>
+                        <span class="task-name" th:text="${task.name}"></span>
+                        <span class="due-date" th:text="${task.dueDate}"></span>
                     </div>
                 </label>
             </li>

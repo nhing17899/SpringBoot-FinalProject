@@ -49,10 +49,8 @@ public class TaskController {
 
     @PostMapping("/list/{id}/task/new")
     public String createTask(@PathVariable("id") int id, @ModelAttribute Task task, Model model) {
+        task.setListId(id);
         todoService.createTask(task);
-
-        List<Task> foundTasks = todoService.getTasksInTodoList(id);
-        model.addAttribute("tasks", foundTasks);
 
         return "redirect:/lists/{id}";
     }
@@ -73,6 +71,19 @@ public class TaskController {
         try {
             todoService.deleteTask(id);
             return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @PutMapping("/task/{id}/checked")
+    public ResponseEntity<Task> setTaskChecked(@PathVariable("id") int id, @RequestParam boolean completed) {
+        try {
+            Task foundTask = todoService.getTaskById(id);
+            foundTask.setCompleted(completed);
+            Task updatedTask = todoService.modifyTask(foundTask);
+            return new ResponseEntity<Task>(updatedTask, HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
