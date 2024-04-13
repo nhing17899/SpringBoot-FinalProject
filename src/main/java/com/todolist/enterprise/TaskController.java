@@ -25,14 +25,18 @@ public class TaskController {
 
     @GetMapping("/task/{id}")
     public ResponseEntity<Task> getTaskById(@PathVariable("id") int id) {
-        try {
-            Task foundTask = todoService.getTaskById(id);
-            return new ResponseEntity<Task>(foundTask, HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    try {
+        Task foundTask = todoService.getTaskById(id);
+        return new ResponseEntity<>(foundTask, HttpStatus.OK);
+    } catch (EntityNotFoundException e) {
+        // Return a ResponseEntity with the status HttpStatus.NOT_FOUND
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    } catch (DataAccessException e) {
+        // Return a ResponseEntity with the status HttpStatus.INTERNAL_SERVER_ERROR
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
+
 
     @GetMapping("/list/{id}/tasks")
     public ResponseEntity<List<Task>> getTasksInTodoList(@PathVariable("id") int id) {
