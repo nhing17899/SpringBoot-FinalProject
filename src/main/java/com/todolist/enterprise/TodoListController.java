@@ -25,14 +25,11 @@ public class TodoListController {
         return "redirect:/lists";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TodoList> getTodoListById(@PathVariable("id") int id) {
-        try {
-            TodoList foundTodoList = todoService.getTodoListById(id);
-            return new ResponseEntity<TodoList>(foundTodoList, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    @GetMapping("/lists/{id}")
+    public String getTodoListById(@PathVariable("id") int id, Model model) {
+        TodoList foundTodoList = todoService.getTodoListById(id);
+        model.addAttribute("todoList", foundTodoList);
+        return "listDetail";
     }
 
     @GetMapping("/lists")

@@ -1,5 +1,6 @@
 package com.todolist.enterprise;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.todolist.enterprise.dto.Task;
+import com.todolist.enterprise.dto.TodoList;
 import com.todolist.enterprise.service.ITodoService;
 
 
@@ -45,15 +47,12 @@ public class TaskController {
         }
     }
 
-    @PostMapping("/task/new")
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        try {
-            Task createdTask = todoService.createTask(task);
-            return new ResponseEntity<Task>(createdTask, HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    @PostMapping("/list/{id}/task/new")
+    public String createTask(@PathVariable("id") int id, @ModelAttribute Task task, Model model) {
+        task.setListId(id);
+        todoService.createTask(task);
+
+        return "redirect:/lists/{id}";
     }
 
     @PutMapping("/task")
@@ -72,6 +71,19 @@ public class TaskController {
         try {
             todoService.deleteTask(id);
             return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @PutMapping("/task/{id}/checked")
+    public ResponseEntity<Task> setTaskChecked(@PathVariable("id") int id, @RequestParam boolean completed) {
+        try {
+            Task foundTask = todoService.getTaskById(id);
+            foundTask.setCompleted(completed);
+            Task updatedTask = todoService.modifyTask(foundTask);
+            return new ResponseEntity<Task>(updatedTask, HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

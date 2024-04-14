@@ -49,6 +49,12 @@
             border-radius: 5px;
             padding: 10px;
             margin: 5px;
+
+        }
+
+        .todo-card a {
+            text-decoration: none;
+            color: black;
         }
 
         .todo-info {
@@ -76,10 +82,10 @@
 
         <ul class="todo-list">
             <li class="todo-card" th:each="todoList : ${todoLists}">
-                <div class="todo-info">
+                <a th:href="@{'/lists/' + ${todoList.getListId()}}">
                     <div class="todo-name" th:text="${todoList.name}"></div>
                     <div class="todo-description" th:text="${todoList.description}"></div>
-                </div>
+                </a>
             </li>
         </ul>
     </div>
