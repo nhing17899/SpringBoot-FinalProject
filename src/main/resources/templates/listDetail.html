@@ -27,9 +27,25 @@
             margin: 20px;
         }
 
+        #deleteToDoListButton {
+            margin-left: 20px;
+        }
+
         #createTaskForm button {
             margin-top: 15px;
             width: 20%;
+        }
+
+        .topBar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topBar a {
+            margin-top: 2rem;
+            align-self: center;
+            text-decoration: none;
+            color: black;
         }
 
         .form-item {
@@ -99,7 +115,10 @@
 </head>
 
 <body>
-    <h1 th:text="${todoList.name}"></h1>
+    <div class="topBar">
+        <a href="/lists">Back To Lists</a>
+        <h1 th:text="${todoList.name}"></h1>
+    </div>
     <div class="container">
         <form id="createTaskForm" th:action="@{'/list/' + ${todoList.listId} + '/task/new'}" th:object="${task}"
             method="POST">
@@ -108,7 +127,7 @@
             <button type="submit" name="submit">Create Task</button>
         </form>
 
-        <button th:data-list-id="${todoList.listId}" onClick="handleListDeletion(this)">Delete List</button>
+        <button id="deleteToDoListButton" th:data-list-id="${todoList.listId}" onClick="handleListDeletion(this)">Delete List</button>
 
         <ul class="task-list">
             <li class="task-card" data-task th:each="task : ${todoList.tasks}">
