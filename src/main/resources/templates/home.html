@@ -22,14 +22,14 @@
             width: 100%;
         }
 
-        #createTodoListForm {
+        #createTodoListForm, #deleteToDoListForm {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
         }
 
-        #createTodoListForm button {
+        #createTodoListForm, #deleteToDoListForm button {
             margin-top: 2rem;
         }
 
@@ -77,7 +77,11 @@
             <label>Name</label> <input type="text" name="name"></input>
             <label>Description</label> <input type="text" name="description"></input>
 
-            <button type="submit" name="submit">Create Todo List</button>
+            <button type="submit" name="submit">Create new Todo List</button>
+
+        </form>
+        <form id="deleteTodoListForm" th:action="@{/list/delete}" th:object="${todoList}" method="POST">
+            <button type="submit" name="delete">Delete latest Todo List</button>
         </form>
 
         <ul class="todo-list">
