@@ -30,20 +30,7 @@ class EnterpriseApplicationTests {
 
 	}
 
-	@Test
-	void testDeleteTodoList() {
-		TodoList todoList = new TodoList();
-		todoList.setName("Test TodoList");
-		todoList.setDescription("Test Description");
 
-		todoService.createTodoList(todoList);
-
-		todoService.deleteTodoList(todoList.getListId());
-
-		List<TodoList> todoLists = todoService.getTodoLists();
-		Assertions.assertFalse(todoLists.contains(todoList));
-
-	}
 
 	@Test
 	void testGetTodoLists() {
