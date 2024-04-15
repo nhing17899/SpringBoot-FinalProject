@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             display: flex;
@@ -88,6 +87,14 @@
                 method: 'PUT',
             })
         }
+
+        async function handleListDeletion(value) {
+            await fetch(`/list/${value.dataset.listId}`, {
+                method: 'DELETE',
+            });
+
+            window.location.replace("/lists");
+        }
     </script>
 </head>
 
@@ -101,6 +108,7 @@
             <button type="submit" name="submit">Create Task</button>
         </form>
 
+        <button th:data-list-id="${todoList.listId}" onClick="handleListDeletion(this)">Delete List</button>
 
         <ul class="task-list">
             <li class="task-card" data-task th:each="task : ${todoList.tasks}">
