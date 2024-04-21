@@ -29,7 +29,8 @@ public class TodoService implements ITodoService {
 
     @Override
     public List<Task> getTasksInTodoList(int todoListId) {
-        return taskRepository.findByListId(todoListId);
+        //updated the method call to use the new method name in TaskRepository
+        return taskRepository.findAllByListId(todoListId);
     }
 
     @Override
